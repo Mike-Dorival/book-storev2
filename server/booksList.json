@@ -1,0 +1,35 @@
+{
+  "success": "true",
+  "content": [
+    {
+      "id": "001",
+      "title": "A Song Of Ice And Fire",
+      "author": "George R R Martin",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81RsFggiQJL.jpg"
+    },
+    {
+      "id": "002",
+      "title": "The Four Hour Work Week",
+      "author": "Tim Feriss",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81qW97ndkvL.jpg"
+    },
+    {
+      "id": "003",
+      "title": "Le Comte De Monte Cristo",
+      "author": "Alexandre Dumas",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81TLHE5QTjS.jpg"
+    },
+    {
+      "id": "004",
+      "title": "The Power Of Habit",
+      "author": "Charles Duhigg",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/819ZixpQzUL.jpg"
+    },
+    {
+      "id": "005",
+      "title": "JavaScript: The Good Parts",
+      "author": "Douglas Crockford",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81kqrwS1nNL.jpg"
+    }
+  ]
+}
