@@ -2,13 +2,15 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
 const booksRoute = require("./routes/book-route");
 const usersRoute = require("./routes/user-route");
 const PORT = 1408;
 
 app.use(cors());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json()); // handle json data
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", booksRoute);
 app.use("/auth", usersRoute);

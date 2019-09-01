@@ -30,6 +30,34 @@
       "title": "JavaScript: The Good Parts",
       "author": "Douglas Crockford",
       "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81kqrwS1nNL.jpg"
+    },
+    {
+      "id": "006",
+      "title": "My songs",
+      "author": "Sting",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/91Uu6hvjRKL._AC_SX290_SY290_.jpg",
+      "price": "16"
+    },
+    {
+      "id": "007",
+      "title": "Juste un peu d'amour",
+      "author": "Frédéric François",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71s9jVdG3KL._SL1500_.jpg",
+      "price": "100"
+    },
+    {
+      "id": "008",
+      "title": "Il est grand temps de rallumer les étoiles",
+      "author": "Virginie Grimaldi",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51QGNoXCihL._SX307_BO1,204,203,200_.jpg",
+      "price": "18"
+    },
+    {
+      "id": "009",
+      "title": "Changer l'eau des fleurs",
+      "author": "Valerie Perrin",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51T0%2BT4l-kL._SX307_BO1,204,203,200_.jpg",
+      "price": "09"
     }
   ]
 }
