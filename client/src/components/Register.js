@@ -22,6 +22,8 @@ function Register() {
         email: state.email,
         password: state.password
       };
+
+      console.log(user);
       axios
         .post(`${process.env.REACT_APP_API_URL}/auth/register`, user)
         .then(response => {

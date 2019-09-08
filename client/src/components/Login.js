@@ -1,4 +1,4 @@
-import React, { useState, useRedirect } from "react";
+import React, { useState } from "react";
 import { Container, Input, Button, Form } from "semantic-ui-react";
 import axios from "axios";
 
@@ -26,16 +26,18 @@ function Login() {
           console.log("res", response);
           if (response.status === 200) {
             localStorage.setItem("user", JSON.stringify(response.data));
-            // useRedirect("/login", "/");
+            alert("Vous êtes connecté");
+            window.location.href = "http://localhost:3000/"; // en attendant une meilleur redirection
           }
         })
         .catch(error => {
-          console.log("Request failed", error);
+          console.log("Request failed", error.response);
         });
     } else {
       console.log("probleme dans les champs");
     }
   };
+
   return (
     <>
       <Container text>
@@ -43,6 +45,8 @@ function Login() {
           <Form.Field>
             <label>Email</label>
             <Input
+              icon="user"
+              iconPosition="left"
               placeholder="Email"
               name="email"
               type="text"
@@ -52,6 +56,8 @@ function Login() {
           <Form.Field>
             <label>Password</label>
             <Input
+              icon="lock"
+              iconPosition="left"
               placeholder="password"
               name="password"
               type="password"
