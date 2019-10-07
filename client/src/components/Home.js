@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Card, Grid, Image, Container, Icon } from "semantic-ui-react";
+import { Card, Grid, Image, Container, Button } from "semantic-ui-react";
 import axios from "axios";
 import "./Home.css";
 
 function Home() {
   const [allBooks, setAllBooks] = useState([]);
-  const [Cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("myCart")) || []
-  );
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("myCart")) || []);
+  const [bookQuantity, setBookQuantity] = useState([])
 
   useEffect(() => {
-    console.log(Cart);
     axios
       .get(`${process.env.REACT_APP_API_URL}/books`)
       .then(res => {
@@ -19,16 +17,26 @@ function Home() {
       .catch(error => {
         console.log("Request failed", error);
       });
-  }, []);
+      // ici j'ai besoin d'avoir le total des livres issu du catalogue
+      // const reducer = (accumulator, currentValue) => accumulator + currentValue;
+      // const onlyTotal = cart ? cart.map(book => book.price) : null;
+      // const total = onlyTotal ? onlyTotal.reduce(reducer) : 0;
+      // localStorage.setItem("total", total); 
+      setBookQuantity(cart.map(book => book.price)) 
+    }, [cart]); // [cart] equivalent a un componentDidUpdate
+    
+  useEffect(() => {
+      if (JSON.parse(localStorage.getItem("user"))) {
+        localStorage.setItem('bookQuantity',JSON.stringify(bookQuantity))
+      }
+  }, [bookQuantity])
 
-  const myCart = book => {
-    setCart([...Cart, book]);
-    localStorage.setItem("myCart", JSON.stringify([...Cart, book]));
+  const addBook = book => {
+    setCart([...cart, book]);
+    localStorage.setItem("myCart", JSON.stringify([...cart, book]));
   };
 
   return (
-    console.log("cart ajouter", Cart),
-    (
       <>
         <Container>
           <Grid>
@@ -47,11 +55,7 @@ function Home() {
                       </Card.Description>
                       <Card.Description>Pages : {book.pages}</Card.Description>
                       <Card.Description>{book.price} €</Card.Description>
-                      <Icon
-                        name="cart arrow down"
-                        size="large"
-                        onClick={() => myCart(book)}
-                      />
+                      <Button primary onClick={() => addBook(book)}>Ajouter au panier</Button>       
                     </Card.Content>
                   </Card>
                 </Grid.Column>
@@ -60,7 +64,6 @@ function Home() {
           </Grid>
         </Container>
       </>
-    )
   );
 }
 
